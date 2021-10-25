@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TableCooks1081655">
+    <Key>
+      <PropertyRef Name="cId" />
+    </Key>
+    <Property Name="cId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="phone" Type="char" MaxLength="10" />
+    <Property Name="age" Type="int" />
+    <Property Name="city" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TableRecipes1081655">
+    <Key>
+      <PropertyRef Name="rId" />
+    </Key>
+    <Property Name="rId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="pic" Type="nvarchar" MaxLength="50" />
+    <Property Name="ingredient" Type="nvarchar" MaxLength="200" />
+    <Property Name="direction" Type="nvarchar" MaxLength="500" />
+    <Property Name="cId" Type="int" />
+  </EntityType>
+  <Association Name="FK__TableRecipe__cId__015F0FBB">
+    <End Role="TableCooks1081655" Type="Self.TableCooks1081655" Multiplicity="0..1" />
+    <End Role="TableRecipes1081655" Type="Self.TableRecipes1081655" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TableCooks1081655">
+        <PropertyRef Name="cId" />
+      </Principal>
+      <Dependent Role="TableRecipes1081655">
+        <PropertyRef Name="cId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbCookModelStoreContainer">
+    <EntitySet Name="TableCooks1081655" EntityType="Self.TableCooks1081655" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableRecipes1081655" EntityType="Self.TableRecipes1081655" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TableRecipe__cId__015F0FBB" Association="Self.FK__TableRecipe__cId__015F0FBB">
+      <End Role="TableCooks1081655" EntitySet="TableCooks1081655" />
+      <End Role="TableRecipes1081655" EntitySet="TableRecipes1081655" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

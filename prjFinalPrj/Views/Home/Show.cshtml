@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Show";
+}
+
+<h2>食譜</h2>
+<div style="margin-top:40px; text-align:center;white-space: pre-line;">
+    <h3>@ViewBag.rName</h3>
+    <img src="../images/@ViewBag.pic" />
+    <h3>[材料]</h3>
+    <h4 style="line-height:2">@ViewBag.ingredient</h4>
+    <hr />
+    <h3>[做法]</h3>
+    <h4>
+        @{
+            var str = "";
+            for (int i = 0; i < ((string)ViewBag.direction).Length; i++)
+            {
+                str += ViewBag.direction[i];
+                if (ViewBag.direction[i] == '。')
+                {
+                    str += "\n";
+                }
+            }
+            @str
+        }
+
+    </h4>
+</div>

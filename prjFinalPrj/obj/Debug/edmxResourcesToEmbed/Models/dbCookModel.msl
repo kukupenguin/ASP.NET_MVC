@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbCookModelStoreContainer" CdmEntityContainer="dbCookEntities">
+    <EntitySetMapping Name="TableCooks1081655">
+      <EntityTypeMapping TypeName="dbCookModel.TableCooks1081655">
+        <MappingFragment StoreEntitySet="TableCooks1081655">
+          <ScalarProperty Name="cId" ColumnName="cId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableRecipes1081655">
+      <EntityTypeMapping TypeName="dbCookModel.TableRecipes1081655">
+        <MappingFragment StoreEntitySet="TableRecipes1081655">
+          <ScalarProperty Name="rId" ColumnName="rId" />
+          <ScalarProperty Name="rName" ColumnName="rName" />
+          <ScalarProperty Name="pic" ColumnName="pic" />
+          <ScalarProperty Name="ingredient" ColumnName="ingredient" />
+          <ScalarProperty Name="direction" ColumnName="direction" />
+          <ScalarProperty Name="cId" ColumnName="cId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

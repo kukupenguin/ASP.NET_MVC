@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "廚師登入";
+}
+
+<h2>Login</h2>
+
+<form method="post" action="@Url.Action("Login")">
+    <div class="panel panel-primary">
+        <div class="panel-heading">廚師登入</div>
+        <div class="panel-body">
+            <p>
+                廚師名稱：
+                <input type="text" class="form-control" name="name" required />
+                測試登入名稱：Hank 密碼：123
+            </p>
+            <p>
+                密碼：
+                <input type="password" class="form-control" name="pwd" required />
+            </p>
+            <p>
+                <input type="submit" class="btn btn-primary" value="登入" />
+                <a href="Create" class="btn btn-success">註冊</a>
+            </p>
+            <p class="text-danger">@ViewBag.Err</p>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,40 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model prjFinalPrj.Models.CookRecipeModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<h3>歡迎 @Html.ActionLink(User.Identity.Name, "Edit", new { name = User.Identity.Name })</h3>
+<table class="table">
+    <tr>
+        <th>食譜編號</th>
+        <th>名稱</th>
+        <th>上傳者</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Recipe)
+    {
+        <tr>
+            <td>@item.rId</td>
+            <td>@Html.ActionLink(item.rName, "Show", new { rId = item.rId })</td>
+            <td>@Model.Cook.Where(m => m.cId == item.cId).FirstOrDefault().name</td>
+            <td>
+                @Html.ActionLink("刪除", "Delete",
+                    new { rId = item.rId },
+                    new
+                    {
+                        onclick = "return confirm('確定刪除嗎？')",
+                            @class = "btn btn-danger"
+                    })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager(Model.Recipe, page => Url.Action("Index", new {page}))
+
+<a href="Home/Logout" class="btn btn-warning">登出</a>
